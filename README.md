@@ -1,2 +1,1 @@
-# c-demos
-c demos
+# c demos
