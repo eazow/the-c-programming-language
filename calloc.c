@@ -4,7 +4,7 @@
 int main()
 {
 	int *p = calloc(1, sizeof(int));
-    *p = 100;
+	*p = 100;
 
 	int **pi = calloc(1, sizeof(int *));
 	*pi = p;
