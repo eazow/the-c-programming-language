@@ -25,6 +25,11 @@ double atof(char s[])
 	return sign * val / power;
 }
 
+int atoi(char s[])
+{
+	return (int)atof(s);
+}
+
 int main ()
 {
 	double sum;
