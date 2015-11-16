@@ -7,6 +7,10 @@
 int getop(char []);
 void push(double);
 double pop();
+int getch();
+void ungetch(int c);
+
+
 
 int main()
 {
@@ -91,10 +95,10 @@ int getop(char s[])
 
 #define BUFSIZE 100
 
-cha buf[BUFSIZE];
+char buf[BUFSIZE];
 int bufp = 0;
 
-int getchar()
+int getch()
 {
 	return (bufp > 0) ? buf[--bufp] : getchar();
 }
