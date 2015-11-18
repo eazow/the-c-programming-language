@@ -1,16 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "4_5_calc.h"
 #define MAXOP 100
-#define NUMBER '0'
-
-int getop(char []);
-void push(double);
-double pop();
-int getch();
-void ungetch(int c);
-
-
 
 int main()
 {
@@ -49,64 +40,4 @@ int main()
 		}
 	}
 	return 0;
-}
-
-#define MAXVAL 100
-int sp = 0;
-double val[MAXVAL];
-
-void push(double f)
-{
-	if(sp < MAXVAL)
-		val[sp++] = f;
-	else
-		printf("error: stack full, can't push %g\n", f);
-}
-
-double pop()
-{
-	if(sp > 0)
-		return val[--sp];
-	else {
-		printf("error: stack empty\n");
-		return 0;
-	}
-}
-
-int getop(char s[])
-{
-	int i, c;
-
-	while((s[0] = c = getch()) == ' ' || c == '\t');
-
-	s[1] = '\0';
-	if(!isdigit(c) && c != '.')
-		return c;
-	i = 0;
-	if(isdigit(c))
-		while(isdigit(s[++i] = c = getch()));
-	if(c == '.')
-		while(isdigit(s[++i] = c = getchar()));
-	s[i] = '\0';
-	if(c != EOF) 
-		ungetch(c);
-	return NUMBER;
-}
-
-#define BUFSIZE 100
-
-char buf[BUFSIZE];
-int bufp = 0;
-
-int getch()
-{
-	return (bufp > 0) ? buf[--bufp] : getchar();
-}
-
-void ungetch(int c)
-{
-	if(bufp >= BUFSIZE)
-		printf("ungetch: too many characters\n");
-	else
-		buf[bufp++] = c;
 }
